@@ -7,27 +7,35 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class MyAnnotationHardler {
+public class MyAdvice {
 
+    /* annotation is only for method */
     @Pointcut("@annotation(spring.annotation.MyAnnotation)")
-    public void myWork() {
-        System.out.println(" my work");
+    public void userAnnotation() {
+
     }
 
-    @Before("myWork()")
+    @Before("userAnnotation()")
     public void doBefore(JoinPoint joinPoint) {
+        Object[] params = joinPoint.getArgs();
+        System.out.println(params[0]);
         System.out.println("==========doBefore()===============");
     }
 
-    @Around("myWork()")
+    @Around("userAnnotation()")
     public void doAround(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("==========doAround  start()===============");
+        System.out.println("==========doAround start()===============");
+        Object[] params = pjp.getArgs();
+        System.out.println(params[0]);
         pjp.proceed();
         System.out.println("==========doAround end()===============");
     }
 
-    @After("myWork()")
+    @After("userAnnotation()")
     public void doAfter(JoinPoint joinPoint) {
+        Object[] params = joinPoint.getArgs();
+        System.out.println(params[0]);
         System.out.println("==========doAfter()===============");
     }
+
 }
