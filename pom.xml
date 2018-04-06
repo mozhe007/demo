@@ -7,6 +7,9 @@
   <version>1.0-SNAPSHOT</version>
   <name>demo Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <!--<properties/>
+    <springVersion>5.0.0.RELEASE</springVersion>
+  </project>-->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -19,14 +22,48 @@
       <artifactId>activemq-core</artifactId>
       <version>5.7.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-    <dependency>
+    <!--<dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>5.0.4.RELEASE</version>
+      <version>3.0.4</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>3.0.4</version>
+    </dependency>-->
+    <dependency>
+      <groupId>aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.5.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>3.2.4</version>
     </dependency>
   </dependencies>
   <build>
     <finalName>demo</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

@@ -1,6 +1,7 @@
-package com.company.JMS.Sender;
+package jms.Sender;
 
-import com.company.JMS.domain.User;
+
+import jms.domain.User;
 
 import javax.jms.*;
 import javax.naming.Context;
@@ -54,7 +55,7 @@ public class MyQueueSender {
 
     public void  send(String message)  throws  JMSException {
         // type5：set ObjectMessage
-        User user =  new  User();
+        User user =  new User();
         user.setName(message);
         objectMessage.setObject(user);
         queueSender.send(objectMessage);

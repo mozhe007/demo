@@ -1,6 +1,6 @@
-package com.company.JMS.Receiver;
+package jms.Receiver;
 
-import com.company.JMS.domain.User;
+import jms.domain.User;
 
 import javax.jms.*;
 import javax.naming.Context;

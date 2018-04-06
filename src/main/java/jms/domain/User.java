@@ -1,4 +1,4 @@
-package com.company.JMS.domain;
+package jms.domain;
 
 import java.io.Serializable;
 

@@ -1,7 +1,4 @@
-package com.company.JMS;
-
-import javax.jms.QueueConnectionFactory;
-import javax.jms.TopicConnectionFactory;
+package jms;
 
 /**
  * Created by James on 2017/5/29.
