@@ -57,9 +57,5 @@ public class MemcacheManager {
         System.out.println(memCachedClient.get("incr"));
         memCachedClient.incr("incr",5);
         System.out.println(memCachedClient.get("incr"));
-
-
-
-
     }
 }
