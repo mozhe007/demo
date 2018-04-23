@@ -6,19 +6,37 @@ import org.springframework.util.Assert;
 public class CollectionTest {
 
     @Test
+    public void ArrayListTest(){
+        Collection collection = new Collection();
+        collection.arrayList();
+        Assert.isTrue(true,"true");
+    }
+
+    @Test
     public void HashMapTest(){
         Collection collection = new Collection();
-        collection.HashMap();
+        collection.hashMap();
     }
 
 
     @Test
-    public void ArrayListTest(){
+    public void linkedHashMapTest(){
         Collection collection = new Collection();
-        collection.ArrayList();
-        Assert.isTrue(true,"true");
+        collection.linkedHashMap();
+    }
+
+    @Test
+    public void linkedHashSetTest(){
+        Collection collection = new Collection();
+        collection.linkedHashSet();
     }
 
 
+
+    @Test
+    public void treeSetTest(){
+        Collection collection = new Collection();
+        collection.treeSet();
+    }
 
 }

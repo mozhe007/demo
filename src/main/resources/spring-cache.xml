@@ -12,19 +12,7 @@
 
     <context:component-scan base-package="redis"/>
     <!-- 配置文件加载 -->
-    <context:property-placeholder location="classpath:*.properties"/>
-    <cache:annotation-driven cache-manager="cacheManager"/>
-
-    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
-        <property name="caches">
-            <set>
-                <bean class="redis.RedisCache">
-                    <property name="redisTemplate" ref="redisTemplate"/>
-                    <property name="name" value="redisCache"/>
-                </bean>
-            </set>
-        </property>
-    </bean>
+    <context:property-placeholder location="classpath:*.properties" ignore-unresolvable="false"/>
 
     <!-- redis连接池 -->
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
@@ -39,8 +27,22 @@
         <property name="password" value="${redis.pass}"/>
         <property name="poolConfig" ref="poolConfig"/>
     </bean>
+
     <!-- redis模板 -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="connectionFactory"/>
     </bean>
+
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="redis.RedisCache">
+                    <property name="redisTemplate" ref="redisTemplate"/>
+                    <property name="name" value="redisCache"/>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+    <cache:annotation-driven cache-manager="cacheManager"/>
 </beans>

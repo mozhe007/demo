@@ -3,7 +3,9 @@ package redis;
 import redis.clients.jedis.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Handler;
 
 public class RedisManager {
 
@@ -52,6 +54,14 @@ public class RedisManager {
         RedisManager redisManager = new RedisManager();
         redisManager.jedis.set("k1","v1");
         System.out.println(redisManager.jedis.get("k1"));
+        System.out.println(redisManager.jedis.get("nilStr"));
+        HashMap<String,String> inHashMap = new HashMap<String, String>();
+        inHashMap.put("hashk1","v11");
+        redisManager.jedis.hmset("hash",inHashMap);
+        System.out.println(redisManager.jedis.hmget("hash","hashk1"));
+        System.out.println(redisManager.jedis.hmget("hash","hashk2"));
+
+
     }
 
 
