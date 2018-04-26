@@ -9,7 +9,7 @@ import java.util.logging.Handler;
 
 public class RedisManager {
 
-    private Jedis jedis;//非切片额客户端连接
+    public Jedis jedis;//非切片额客户端连接
     private JedisPool jedisPool;//非切片连接池
     private ShardedJedis shardedJedis;//切片额客户端连接
     private ShardedJedisPool shardedJedisPool;//切片连接池
@@ -48,6 +48,11 @@ public class RedisManager {
         shards.add(new JedisShardInfo("127.0.0.1", 6379, "master"));
         // 构造池
         shardedJedisPool = new ShardedJedisPool(config, shards);
+    }
+
+    public Jedis getRedis(){
+        RedisManager redisManager = new RedisManager();
+        return redisManager.jedis;
     }
 
     public static void main(String[] args) {

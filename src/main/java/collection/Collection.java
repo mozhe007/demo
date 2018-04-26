@@ -1,8 +1,12 @@
 package collection;
 
 import com.sun.java.accessibility.AccessBridge;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 /*包括
@@ -111,17 +115,18 @@ public class Collection {
         for (Iterator iter = tailSet.iterator(); iter.hasNext(); ) {
             System.out.println(iter.next());
         }
+        ReflectionToStringBuilder.toString(this);
 
     }
 
     public void treeMap(){
         TreeMap treeMap = new TreeMap();
-
     }
 
-
+    /* 利用分段锁的 */
     public void concurrentMap(){
-
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        concurrentHashMap.put("a","");
     }
 
 
