@@ -120,11 +120,6 @@ public class MultiThread {
         }
     }
 
-    public static void main(String[] args) {
-        MultiThread multiThread = new MultiThread();
-        multiThread.cyclicBarrier();
-    }
-
     /* 三个运动员各自准备，等到三个人都准备好后，再一起跑 */
     public void cyclicBarrier() {
         int limit = 3;
@@ -136,9 +131,9 @@ public class MultiThread {
                     try {
                         long time = new Random().nextInt(2000);
                         Thread.sleep(time);
-                        System.out.println("我是线程之一，我准备好了，时间"+time);
+                        System.out.println("我是线程之一，我准备好了，时间" + time);
                         cyclicBarrier.await();
-                        System.out.println("跑！"+time);
+                        System.out.println("跑！" + time);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (BrokenBarrierException e) {
@@ -147,6 +142,11 @@ public class MultiThread {
                 }
             }).start();
         }
+    }
+
+    public static void main(String[] args) {
+        MultiThread multiThread = new MultiThread();
+        multiThread.cyclicBarrier();
     }
     /* 子线程完成某件任务后，把得到的结果回传给主线程 */
     // 见MyCallableTest
