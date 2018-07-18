@@ -76,7 +76,7 @@ public class RedisCache implements Cache {
             @Override
             public Long doInRedis(RedisConnection connection) throws DataAccessException {
                 byte[] keyb = keyString.getBytes();
-                byte[] valueb = SerializationUtils.serialize((Serializable) valuef);
+                byte[] valueb = SerializationUtils.serialize(valuef);
                 connection.set(keyb, valueb);
                 if (liveTime > 0) {
                     connection.expire(keyb, liveTime);

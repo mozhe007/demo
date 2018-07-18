@@ -34,7 +34,7 @@
       num: Number
     },
     template: '<p>props校验，字符串{{str}},数值{{num}}</p>'
-  }
+  };
 
   var vm = new Vue({
     el: '#app',

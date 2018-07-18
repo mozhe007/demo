@@ -15,7 +15,7 @@ public class MyAdvice3Test {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
                 new String[]{"classpath*:applicationContext.xml"});
-        MyAdvice3Test userController = (MyAdvice3Test) applicationContext.getBean(MyAdvice3Test.class);
+        MyAdvice3Test userController = applicationContext.getBean(MyAdvice3Test.class);
         userController.foo("james");
     }
     

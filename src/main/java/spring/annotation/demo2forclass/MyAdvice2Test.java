@@ -20,7 +20,7 @@ public class MyAdvice2Test {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
                 new String[]{"classpath*:applicationContext.xml"});
-        MyAdvice2Test userController = (MyAdvice2Test) applicationContext.getBean(MyAdvice2Test.class);
+        MyAdvice2Test userController = applicationContext.getBean(MyAdvice2Test.class);
         userController.foo1("james");
         userController.foo2("lin");
     }

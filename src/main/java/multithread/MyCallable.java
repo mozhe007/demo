@@ -6,7 +6,7 @@ import java.util.concurrent.*;
 public class MyCallable implements Callable {
 
     @Override
-    public Object call() throws Exception {
+    public Object call() {
         return null;
     }
 
@@ -34,7 +34,7 @@ public class MyCallable implements Callable {
     public void callableExecutorService() {
         ExecutorService threadPool = Executors.newSingleThreadExecutor();
         Future<Integer> future = threadPool.submit(new Callable<Integer>() {
-            public Integer call() throws Exception {
+            public Integer call() {
                 return new Random().nextInt(100);
             }
         });

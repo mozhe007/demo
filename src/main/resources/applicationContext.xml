@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!--******spring/annotation******-->
+    <!--******withspring/annotation******-->
     <!-- 开启注解扫描 -->
     <context:component-scan base-package="spring.annotation"/>
     <!-- 开启aop注解方式，此步骤s不能少，这样java类中的aop注解才会生效 -->
@@ -16,7 +16,7 @@
     <!-- 基于类的代理将起作用（需要cglib库）  -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
-    <!--******spring/annotation/demo3xmlconfig******-->
+    <!--******withspring/annotation/demo3xmlconfig******-->
     <!--切面-->
     <bean id="advice3" class="spring.annotation.demo3xmlconfig.MyAdvice3"/>
     <aop:config>

@@ -17,7 +17,7 @@ public class RedisCacheTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
                 new String[]{"classpath*:spring-cache.xml"});
-        RedisCacheTest redisCacheTest = (RedisCacheTest) applicationContext.getBean(RedisCacheTest.class);
+        RedisCacheTest redisCacheTest = applicationContext.getBean(RedisCacheTest.class);
         System.out.println(redisCacheTest.fooString("james"));
         System.out.println(redisCacheTest.fooString("james"));
     }

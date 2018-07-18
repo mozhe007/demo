@@ -144,9 +144,106 @@ public class MultiThread {
         }
     }
 
+    /* Phaser替代CountDownLatch */
+
+    public void phaser1() {
+        final int limit = 4;
+        final Phaser phaser = new Phaser(limit);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                phaser.awaitAdvance(limit);
+                //主线程的await操作需要设置超时时间，避免因子线处理异常而长时间一直等待，如果中断需要抛出异常或返回错误结果
+                System.out.println("主线程结束");
+            }
+        }).start();
+        for (int i = 0; i < 4; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                        phaser.arrive();
+                        System.out.println("其余线程结束" + phaser.getUnarrivedParties());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+    }
+
+    /* Phaser替代CyclicBarrier */
+    public void phaser2() {
+        int limit = 3;
+        final Phaser phaser = new Phaser(limit);
+        for (int i = 0; i < 3; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        long time = new Random().nextInt(2000);
+                        Thread.sleep(time);
+                        System.out.println("我是线程之一，我准备好了，时间" + time);
+                        phaser.arriveAndAwaitAdvance();
+                        System.out.println("跑！" + time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+    }
+
+    /* Phaser 动态变更 */
+    public void phaser3() {
+        int limit = 3;
+        final Phaser phaser = new Phaser(limit);
+        for (int i = 0; i < 3; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        long time = new Random().nextInt(2000);
+                        Thread.sleep(time);
+                        System.out.println("我是线程之一，我准备好了，时间" + time);
+                        phaser.arriveAndAwaitAdvance();
+                        System.out.println("跑！" + time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+        try {
+            TimeUnit.SECONDS.sleep(6);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        phaser.register(); // 就是+1,个数从3变成了4
+        phaser.bulkRegister(1);//再+1，个数从4变成了5
+        for (int i = 0; i < 5; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        long time = new Random().nextInt(2000);
+                        Thread.sleep(time);
+                        System.out.println("我是线程之一，我准备好了，时间" + time);
+                        phaser.arriveAndAwaitAdvance();
+                        System.out.println("跑！" + time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+    }
+
+
     public static void main(String[] args) {
         MultiThread multiThread = new MultiThread();
-        multiThread.cyclicBarrier();
+        multiThread.phaser3();
     }
     /* 子线程完成某件任务后，把得到的结果回传给主线程 */
     // 见MyCallableTest
