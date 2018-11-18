@@ -10,7 +10,7 @@
 
     <!--******withspring/annotation******-->
     <!-- 开启注解扫描 -->
-    <context:component-scan base-package="spring.annotation"/>
+    <context:component-scan base-package="spring.annotation,log"/>
     <!-- 开启aop注解方式，此步骤s不能少，这样java类中的aop注解才会生效 -->
     <aop:aspectj-autoproxy/>
     <!-- 基于类的代理将起作用（需要cglib库）  -->
