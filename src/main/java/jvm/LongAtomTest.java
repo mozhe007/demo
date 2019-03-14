@@ -33,6 +33,20 @@ public class LongAtomTest implements  Runnable{
         System.out.println("运行正确");
     }
 
+    class A {
+        A(String a) {
+        }
+
+        class B {
+            B(String b) {
+            }
+
+            class C {
+            }
+        }
+    }
+
+
     public static void main(String[] args) throws InterruptedException {
         // 获取并打印当前JVM是32位还是64位的
         String arch = System.getProperty("sun.arch.data.model");
