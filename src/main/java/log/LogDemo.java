@@ -14,7 +14,7 @@ public class LogDemo {
     public static void main(String[] args) {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        LogDemo logDemo  =applicationContext.getBean(LogDemo.class);
+        LogDemo logDemo = applicationContext.getBean(LogDemo.class);
         logDemo.logger.error("--errorLevel--");
         logDemo.logger.info("--infoLevel--");
         logDemo.logger.debug("--debugLevel--");
