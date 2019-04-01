@@ -1,4 +1,4 @@
-package jdk.lock;
+package rt.java.util.concurrent.locks;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -15,12 +15,12 @@ public class ReentrantLock2 implements Runnable {
     void lockTest(){
         for (int j = 0; j < 100000; j++) {
             lock.lock();
-//            jdk.lock.jdk.lock();
+//            rt.java.util.concurrent.locks.lock.rt.java.util.concurrent.locks.lock();
             try {
                 i++;
             } finally {
                 lock.unlock();
-//                jdk.lock.unlock();
+//                rt.java.util.concurrent.locks.lock.unlock();
             }
         }
     }
@@ -28,13 +28,13 @@ public class ReentrantLock2 implements Runnable {
     void volatileTest(){
         for (int j = 0; j < 100000; j++) {
             lock.lock();
-//            jdk.lock.jdk.lock();
+//            rt.java.util.concurrent.locks.lock.rt.java.util.concurrent.locks.lock();
             try {
                 i++;
                 ii = i;
             } finally {
                 lock.unlock();
-//                jdk.lock.unlock();
+//                rt.java.util.concurrent.locks.lock.unlock();
             }
         }
     }

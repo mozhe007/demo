@@ -1,4 +1,4 @@
-package jdk.reflect;
+package rt.java.lang.reflect;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

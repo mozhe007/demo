@@ -1,4 +1,4 @@
-package jdk.lock;
+package rt.java.util.concurrent.locks;
 
 /*
 它提供了lock()方法：
@@ -13,7 +13,7 @@ package jdk.lock;
 */
 public class MyReentrantLock {
 
-    /*jdk.lock -> 调用后一直阻塞到获得锁
+    /*rt.java.util.concurrent.locks.lock -> 调用后一直阻塞到获得锁
     tryLock -> 尝试是否能获得锁 如果不能获得立即返回
     lockInterruptibly -> 调用后一直阻塞到获得锁 但是接受中断信号*/
     public void lock1(MyBean myBean) {
@@ -42,9 +42,9 @@ public class MyReentrantLock {
 
     public void tryLock(MyBean myBean) {
         if (myBean.getLock().tryLock()) {
-            System.out.println(" tryLock -- get jdk.lock");
+            System.out.println(" tryLock -- get rt.java.util.concurrent.locks.lock");
         } else {
-            System.out.println(" tryLock -- not get jdk.lock");
+            System.out.println(" tryLock -- not get rt.java.util.concurrent.locks.lock");
         }
     }
 

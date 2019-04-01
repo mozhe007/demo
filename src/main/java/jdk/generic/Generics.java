@@ -67,10 +67,15 @@ public class Generics<T> {
     }
 
     // 泛型下界super,super只能修饰参数类型
-    // 因为对返回类型做super没有任何意义， 我们只能使用Object类型的方法。
+    // 因为对返回类型做super没有任何意义， 编译器无法确定 t的类型，我们只能使用Object类型的方法，但这是本来就知道。
     public <T> void super1( Generics<? super T>  t) {
         List<? super FatherBean> l1 = new ArrayList<>();
     }
 
+    //问题 ？与 T 的区别？
+    //实际上 ？与 T 不是同一个可比较的关系， T 是指一个确定类型的，但是编译时不知道
+    //    ? 仅代表类型 List<?> 没有任何意义
+    public void wildcard(){
+    }
 
 }
