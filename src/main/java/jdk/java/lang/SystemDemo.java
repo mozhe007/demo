@@ -1,6 +1,6 @@
-package jdk.system;
+package jdk.java.lang;
 
-public class SystemMain {
+public class SystemDemo {
 
     public static void main(String[] args) {
         String javaVersion = System.getProperty("java.version");

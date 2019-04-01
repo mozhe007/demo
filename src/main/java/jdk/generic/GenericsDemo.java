@@ -3,11 +3,11 @@ package jdk.generic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Generics<T> {
+public class GenericsDemo<T> {
 
     private T t;
 
-    public Generics(T t) {
+    public GenericsDemo(T t) {
         this.t = t;
     }
 
@@ -41,7 +41,7 @@ public class Generics<T> {
 
     // 不是一个泛型方法，这也是一个普通的方法，只不过使用了泛型通配符?
     // 此处’？’是类型实参，而不是类型形参
-    public void method4(Generics<?> g) {
+    public void method4(GenericsDemo<?> g) {
 
     }
 
@@ -68,7 +68,7 @@ public class Generics<T> {
 
     // 泛型下界super,super只能修饰参数类型
     // 因为对返回类型做super没有任何意义， 我们只能使用Object类型的方法。
-    public <T> void super1( Generics<? super T>  t) {
+    public <T> void super1( GenericsDemo<? super T> t) {
         List<? super FatherBean> l1 = new ArrayList<>();
     }
 
