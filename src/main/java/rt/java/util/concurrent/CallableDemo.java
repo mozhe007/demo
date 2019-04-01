@@ -1,9 +1,9 @@
-package jdk.multithread;
+package rt.java.util.concurrent;
 
 import java.util.Random;
 import java.util.concurrent.*;
 
-public class MyCallable implements Callable {
+public class CallableDemo implements Callable {
 
     @Override
     public Object call() {

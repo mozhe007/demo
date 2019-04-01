@@ -11,7 +11,7 @@ package jdk.multithread;
  *
  * 代码相关资料https://www.ibm.com/developerworks/cn/java/j-jtp06197.html
  */
-public class MyVolatile {
+public class VolatileDemo {
     /*  模式 #1：状态标志
      */
     volatile boolean shutdownRequested;
