@@ -16,7 +16,7 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
         </Console>
-        <File name="log" fileName="D://log//test.log" append="false">
+        <File name="framework.slf4j" fileName="D://framework.log//test.framework.slf4j" append="false">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
         </File>
     </Appenders>
@@ -24,8 +24,8 @@
         <Logger name="org.springframework" level="info">
             <AppenderRef ref="Console"/>
         </Logger>
-        <AsyncLogger name="log" level="trace" includeLocation="true">
-            <AppenderRef ref="log"/>
+        <AsyncLogger name="framework.slf4j" level="trace" includeLocation="true">
+            <AppenderRef ref="framework.slf4j"/>
         </AsyncLogger>
         <AsyncRoot level="debug">
             <AppenderRef ref="console"/>

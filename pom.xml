@@ -33,7 +33,7 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
-        <!-- activemq 相关maven依赖 -->
+        <!-- middleware.activemq 相关maven依赖 -->
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-jms_1.1_spec</artifactId>
@@ -54,7 +54,7 @@
             <artifactId>dubbo</artifactId>
             <version>${dubbo-version}</version>
         </dependency>
-        <!--jms-->
+        <!--middleware.jms-->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-core</artifactId>
@@ -113,6 +113,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${spring-version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->

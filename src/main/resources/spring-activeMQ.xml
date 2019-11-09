@@ -7,7 +7,7 @@
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <context:component-scan base-package="activemq"/>
+    <context:component-scan base-package="middleware.activemq"/>
     <!-- 配置文件加载 -->
     <context:property-placeholder location="classpath:activeMQ.properties" ignore-unresolvable="false"/>
     <!-- 连接工厂 -->
@@ -27,7 +27,7 @@
     </bean>
 
     <!--for ListenerMore.java  -->
-    <bean id = "jmsMessageListener" class="activemq.withspring.ListenerMore"></bean>
+    <bean id = "jmsMessageListener" class="middleware.activemq.withspring.ListenerMore"></bean>
     <bean id = "consumer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destination" ref="destination" />

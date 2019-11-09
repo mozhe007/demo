@@ -36,7 +36,7 @@
     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">
             <set>
-                <bean class="redis.RedisCache">
+                <bean class="middleware.redis.RedisCache">
                     <property name="redisTemplate" ref="redisTemplate"/>
                     <property name="name" value="redisCache"/>
                 </bean>

@@ -1,0 +1,8 @@
+java -Xbootclasspath/a:D:\Java\jdk8\lib\tools.jar -jar D:\develop\debugtool.arthas-packaging-3.0.4-bin\debugtool.arthas-core.jar -pid 22088 -target-ip 127.0.0.1 -telnet-port 3658 -http-port 8563 -core D:\develop\debugtool.arthas-packaging-3.0.4-bin\debugtool.arthas-core.jar -agent D:\develop\debugtool.arthas-packaging-3.0.4-bin\debugtool.arthas-agent.jar
+
+telnet localhost 3658
+
+watch debugtool.arthas.ArthasMain uuid "{returnObj}"
+watch debugtool.arthas.ArthasMain uuid "{params,returnObj}"
+
+params

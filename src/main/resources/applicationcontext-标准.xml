@@ -66,7 +66,7 @@
             queue-capacity="${threadpool.queue-capacity}"
             keep-alive="${threadpool.keep-alive}"/>
 
-    <!-- spring 注解缓存开启 -->
+    <!-- framework.spring 注解缓存开启 -->
     <cache:annotation-driven />
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
         <property name="cacheManager" ref="ehcache"></property>

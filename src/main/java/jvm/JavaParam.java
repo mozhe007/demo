@@ -1,5 +1,7 @@
 package jvm;
 
+import commonbean.Bean;
+
 /**
  * 通过代码说明 Java 引用传递在堆栈上的关系。
  * 可以从JVM的内存空间存放上说明，值传递 和引用传递。

@@ -1,8 +1,6 @@
 package jvm;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import commonbean.Bean;
 
 public class Declare {
     public Bean bean;

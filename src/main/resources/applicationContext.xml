@@ -10,7 +10,7 @@
 
     <!--******withspring/annotation******-->
     <!-- 开启注解扫描 -->
-    <context:component-scan base-package="spring,log"/>
+    <context:component-scan base-package="framework.spring,framework.slf4j"/>
     <!-- 开启aop注解方式，此步骤s不能少，这样java类中的aop注解才会生效 -->
     <aop:aspectj-autoproxy/>
     <!-- 基于类的代理将起作用（需要cglib库）  -->
@@ -18,10 +18,10 @@
 
     <!--******withspring/annotation/demo3xmlconfig******-->
     <!--切面-->
-    <bean id="advice3" class="spring.annotation.demo3xmlconfig.MyAdvice3"/>
+    <bean id="advice3" class="framework.spring.annotation.demo3xmlconfig.MyAdvice3"/>
     <aop:config>
         <aop:aspect ref="advice3">
-            <aop:pointcut id="useXml" expression="execution(* spring.annotation.demo3xmlconfig.MyAdvice3Test.*(..))" />
+            <aop:pointcut id="useXml" expression="execution(* framework.spring.annotation.demo3xmlconfig.MyAdvice3Test.*(..))" />
             <aop:before method="doBefore" pointcut-ref="useXml" />
             <aop:around method="doAround" pointcut-ref="useXml" />
             <aop:after method="doAfter" pointcut-ref="useXml" />
