@@ -15,6 +15,9 @@ public class MyBeanTest {
         applicationContext.refresh();
         SameName sameName = (SameName)applicationContext.getBean("sameName");
         System.out.println(sameName.name);
+        Thread thread = new Thread();
+        thread.run();
+
     }
 
 }

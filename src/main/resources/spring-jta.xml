@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+                        http://www.springframework.org/schema/jee
+                        http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+    <!-- 配置文件加载 -->
+    <context:property-placeholder location="classpath:mysql.properties" ignore-unresolvable="false"/>
+    <!-- 定义第一个数据源 -->
+    <bean id="dataSource1" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close">  
+       <description>masterxadatasource</description>  
+        <property name="uniqueResourceName">
+                    <value>masterDataSource</value>  
+        </property>  
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>  
+        <property name="xaProperties">
+                    <props>  
+                        <prop key="user">${jdbc.one.username}</prop>  
+                        <prop key="password">${jdbc.one.password}</prop>  
+                        <prop key="URL">${jdbc.one.url}</prop>  
+                    </props>
+        </property>       
+        <property name="poolSize" value="10"/>
+     </bean>
+    <!-- 定义第二个数据源 -->
+    <bean id="dataSource2" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close">  
+            <description>masterxadatasource</description>  
+            <property name="uniqueResourceName">
+                <value>masterDataSource</value>  
+            </property>  
+            <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>  
+            <property name="xaProperties">
+            <props>
+                <prop key="user">${jdbc.two.username}</prop>
+                <prop key="password">${jdbc.two.password}</prop>
+                <prop key="URL">${jdbc.two.url}</prop>
+            </props>
+            </property>
+          <property name="poolSize" value="10"/>
+    </bean>
+
+    <!-- atomikos事务管理器 -->
+    <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
+          init-method="init" destroy-method="close">
+        <description>UserTransactionManager</description>
+        <property name="forceShutdown">
+            <value>true</value>
+        </property>
+    </bean>
+
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+        <property name="transactionTimeout" value="300" />
+    </bean>
+
+</beans>

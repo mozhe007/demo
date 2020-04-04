@@ -19,6 +19,8 @@ public class ClassLoaderDemo extends ClassLoader {
         try {
             Class<?> aClass = Thread.currentThread().getContextClassLoader().loadClass("java.lang.String");
             System.out.println(aClass.newInstance().toString());
+            String a = new String();
+            System.out.println("1"+a.toString());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {

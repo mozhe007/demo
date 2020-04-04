@@ -15,12 +15,22 @@ public class LogDemo {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         LogDemo logDemo = applicationContext.getBean(LogDemo.class);
-        logDemo.logger.error("--errorLevel--");
+        /*logDemo.logger.error("--errorLevel--");
         logDemo.logger.info("--infoLevel--");
-        logDemo.logger.debug("--debugLevel--");
+        logDemo.logger.debug("--debugLevel--");*/
 
         /*staticLogger2.error("--errorLevel--");
         staticLogger2.info("--infoLevel--");
         staticLogger2.debug("--debugLevel--");*/
+        try {
+            if (true) {
+                throw new RuntimeException("我的错误");
+            }
+        } catch (Exception e) {
+            logDemo.logger.error("11{},22{}", "aa", "bb", e);
+        }
+
+
+        StackTraceElement stack[] = Thread.currentThread().getStackTrace();
     }
 }

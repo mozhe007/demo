@@ -1,6 +1,8 @@
 package rt.java.util.concurrent;
 
 
+import commonbean.MyRunable;
+
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -50,6 +52,26 @@ public class ThreadPoolExecutorDemo {
         }
     }
 
+    /*如果任务顺序执行，先执行 12345， 678910会在队列里，11-20会依次执行*/
+    public void order1() {
+        int corePoolSize = 5;
+        int maximumPoolSize = 20;
+        int queueSize = 5;
+        AtomicInteger atomicInteger = new AtomicInteger(0);
+        LinkedBlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(queueSize);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 0, TimeUnit.SECONDS, queue);
+        for (int i = 1; i <= 20; i++) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            MyRunable myRunable = new MyRunable(i);
+            threadPoolExecutor.execute(myRunable);
+        }
+    }
+
+
     /**
      * 截取 ThreadPoolExecutor.execute(Runnable command)方法的代码。
      */
@@ -91,14 +113,14 @@ public class ThreadPoolExecutorDemo {
     }
 
     /**
-     *   参数： firstTask：the task the new thread should run first
-     *     应该第一个运行的任务，null就从workQueue里面取
-     *   参数： core：if true use corePoolSize as bound, else
-     *           maximumPoolSize
-     *     用来当作边界的值，corePoolSize/maximumPoolSize
+     * 参数： firstTask：the task the new thread should run first
+     * 应该第一个运行的任务，null就从workQueue里面取
+     * 参数： core：if true use corePoolSize as bound, else
+     * maximumPoolSize
+     * 用来当作边界的值，corePoolSize/maximumPoolSize
      * 原理：
-     *   阶段1，先利用自旋锁，维护AtomicInteger ctl ，使+1
-     *   阶段2  创建并运行新线程
+     * 阶段1，先利用自旋锁，维护AtomicInteger ctl ，使+1
+     * 阶段2  创建并运行新线程
      * 代码：
      * 1. 检查状态。如果关闭了，就返回false.
      * 2. 判断核心数量，如果大于目标值(corePoolSize : maximumPoolSize)就返回false
@@ -174,10 +196,12 @@ public class ThreadPoolExecutorDemo {
                 addWorkerFailed(w);
         }
         return workerStarted;*/
-    };
+    }
+
+    ;
 
     public static void main(String[] args) {
         ThreadPoolExecutorDemo threadPoolExecutorDemo = new ThreadPoolExecutorDemo();
-        threadPoolExecutorDemo.order();
+        threadPoolExecutorDemo.order1();
     }
 }

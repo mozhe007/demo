@@ -6,7 +6,8 @@ package commonbean;
 public class Bean {
 
     private String id;
-
+    public Bean() {
+    }
     public Bean(String id) {
         this.id = id;
     }
@@ -23,4 +24,5 @@ public class Bean {
     public String toString(){
         return id;
     }
+
 }
