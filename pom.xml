@@ -252,7 +252,17 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.60</version>
         </dependency>
-
+        <!--dubbo如果使用hessain协议需要的jar包-->
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>4.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <version>6.1.26</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>demo</finalName>
