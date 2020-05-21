@@ -1,5 +1,9 @@
 package jvm.lambda;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class LambdaDemo {
 
     public void one(OneFunctionInterface oneFunctionInterface) {
@@ -17,6 +21,25 @@ public class LambdaDemo {
     public void returnF(ReturnInterface returnInterface){
 
         System.out.println(returnInterface.function1("112323"));
+    }
+
+    /**
+     * 静态方法引用（static method）语法：classname::methodname 例如：Person::getAge
+     * 对象的实例方法引用语法：instancename::methodname 例如：System.out::println
+     * 对象的超类方法引用语法： super::methodname
+     * 类构造器引用语法： classname::new 例如：ArrayList::new
+     * 数组构造器引用语法： typename[]::new 例如： String[]:new
+     */
+    public void doublequote() {
+        List<String> collected = new ArrayList<>();
+        collected.add("alpha");
+        collected.add("beta");
+       // collected = collected.stream().map(String::toUpperCase).collect(collectors.toCollection(ArrayList::new));
+    }
+
+    @FunctionalInterface
+    interface foo{
+        String invoke(HashMap ha);
     }
 
     public static void main(String[] args) {

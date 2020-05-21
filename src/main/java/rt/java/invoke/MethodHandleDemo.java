@@ -95,7 +95,7 @@ public class MethodHandleDemo {
     public static void main(String[] args) {
         MethodHandleDemo methodHandleDemo = new MethodHandleDemo();
         try {
-            methodHandleDemo.differenceWithinvokeAndinvokeExact();
+            methodHandleDemo.getMethodHandle();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }

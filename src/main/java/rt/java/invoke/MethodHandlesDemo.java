@@ -39,6 +39,7 @@ public class MethodHandlesDemo {
         assertEquals("", (String) MH_newString.invokeExact());
     }
 
+    // look 和 publicLookup 区别
     public void lookup1(){
         // 所有方法
         MethodHandles.Lookup look = MethodHandles.lookup();
