@@ -241,7 +241,7 @@ public class ClassDemo {
 
     public static void main(String[] args) {
         ClassDemo classDemo = new ClassDemo();
-        classDemo.getSimpleName();
+        classDemo.toGenericString();
     }
 
 }

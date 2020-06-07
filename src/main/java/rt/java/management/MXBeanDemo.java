@@ -5,7 +5,7 @@ import java.lang.management.*;
 import java.util.List;
 
 /**
- *  4个 系统参数的获取， 主要流程 ManagementFactory -> ManagementFactoryHelper
+ *  4个 系统参数的获取， 主要流程 ManagementFactory -> ManagementFactoryHelper -> MemoryImpl -> native 方法
  */
 public class MXBeanDemo {
 
