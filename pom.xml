@@ -263,6 +263,12 @@
             <artifactId>jetty</artifactId>
             <version>6.1.26</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>demo</finalName>

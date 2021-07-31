@@ -10,11 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demo" target="1.6" />
-      <module name="hello-springboot" target="1.7" />
-      <module name="simple-web-app-tomcat" target="1.7" />
-      <module name="spring-boot-demo" target="1.8" />
-      <module name="zhibing_mybatis" target="1.6" />
+      <module name="demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
