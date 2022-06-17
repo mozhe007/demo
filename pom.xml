@@ -250,7 +250,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.60</version>
+            <version>1.2.83</version>
         </dependency>
         <!--dubbo如果使用hessain协议需要的jar包-->
         <dependency>
